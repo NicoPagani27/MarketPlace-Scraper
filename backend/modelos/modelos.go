@@ -24,3 +24,26 @@ type Tienda struct {
 type BusquedaRequest struct {
 	Query string `json:"query"`
 }
+
+type ProductoDummyJSON struct {
+	ID          int     `json:"id"`
+	Titulo      string  `json:"title"`
+	Precio      float64 `json:"price"`
+	Descripcion string  `json:"description"`
+	Categoria   string  `json:"category"`
+	ImagenChica string  `json:"thumbnail"`
+	Rating      float64 `json:"rating"`
+}
+
+type RespuestaDummyJSON struct {
+	Productos []ProductoDummyJSON `json:"products"`
+	Total     int                 `json:"total"`
+}
+
+type ProductoPlatzi struct {
+	ID          int      `json:"id"`
+	Titulo      string   `json:"title"`
+	Precio      float64  `json:"price"`
+	Descripcion string   `json:"description"`
+	Imagenes    []string `json:"images"`
+}
