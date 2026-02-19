@@ -14,7 +14,7 @@ Patrón Fan-out/Fan-in: Implementación con goroutines y channels para consultar
 Filtrado inteligente: Búsqueda por coincidencia en títulos de productos. (Aprendizaje nuevo)
 
 Arquitectura del Proyecto
-
+```
 backend/
 ├── main.go              # Punto de entrada y configuración del servidor
 ├── modelos/
@@ -27,7 +27,7 @@ backend/
 └── handlers/
     ├── productos.go     # Endpoints de productos
     └── tiendas.go       # Endpoint de tiendas disponibles
-
+```
 
 API REST Endpoints
 
@@ -80,7 +80,7 @@ El servidor estará disponible en `http://localhost:8080`
 
 Flujo de Trabajo Concurrente
 
-
+```
 Usuario hace búsqueda
         │
         ▼
@@ -98,3 +98,4 @@ BuscarProductosConcurrente()
               │
               ▼
         Respuesta al Cliente
+```
