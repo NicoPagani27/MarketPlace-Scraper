@@ -27,3 +27,32 @@ func BuscarProductos(c *gin.Context) {
 		"productos": productos,
 	})
 }
+
+func ObtenerProductosPorTienda(peticion *gin.Context) {
+	tiendaId := peticion.Param("tiendaId")
+	switch tiendaId {
+	case "fakestore":
+		productos, err := servicios.ConsultarFakeStore()
+		if err != nil {
+			peticion.JSON(500, gin.H{"error": err.Error()})
+			return
+		}
+		peticion.JSON(200, gin.H{"tienda": tiendaId, "total": len(productos), "productos": productos})
+	case "dummyjson":
+		productos, err := servicios.ConsultarDummyJSON()
+		if err != nil {
+			peticion.JSON(500, gin.H{"error": err.Error()})
+			return
+		}
+		peticion.JSON(200, gin.H{"tienda": tiendaId, "total": len(productos), "productos": productos})
+	case "platzi":
+		productos, err := servicios.ConsultarPlatzi()
+		if err != nil {
+			peticion.JSON(500, gin.H{"error": err.Error()})
+			return
+		}
+		peticion.JSON(200, gin.H{"tienda": tiendaId, "total": len(productos), "productos": productos})
+	default:
+		peticion.JSON(404, gin.H{"error": "Tienda no encontrada"})
+	}
+}
